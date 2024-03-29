@@ -81,10 +81,13 @@ Response: 200 OK
 [
   {
     "id": "1",
-    "title": "Note Title",
+    "name": "Note Title",
     "content": "Note content",
-    "tags": ["Tag1", "Tag2"],
-    "created_at": "2024-03-29T12:00:00Z"
+    "imageUrl": "https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg?t=st=1711709517~exp=1711713117~hmac=bfb791dc285c94392e06589e954a6dea5fcf762f7c2133d4d2d208f7dd53e6ab&w=826",
+    "userId": 2,
+    "editorState": "<h1>world</h1>",
+    "created_at": "2024-03-29T12:00:00Z",
+    "updated_at": "2024-03-29T12:00:00Z"
   }
 ]
 ```
@@ -126,7 +129,7 @@ Response 200
 ```json
 {
 "content": "I am writing a piece of text in a notion text editor app.
-        Help me complete my train of thought here:##{body}##"
+        Help me complete my train of thought here:##${body}##"
 }
 ```
 
