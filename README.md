@@ -11,6 +11,10 @@ Welcome to the AI-Enhanced Notion Clone, an innovative project management and no
 - Efficient Data Management: Utilizes Firebase for real-time data storage and retrieval, enhanced with ORMs for structured database interactions.
 - TypeScript Support: Ensures robust type-checking and developer-friendly code.
 
+## Live Demo
+
+[Live Demo Link](https://notion-clone-with-ai.vercel.app/)
+
 ## Getting Started
 
 ### Prerequisites
