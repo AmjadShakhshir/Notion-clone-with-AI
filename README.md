@@ -129,7 +129,7 @@ Response 200
 ```json
 {
 "content": "I am writing a piece of text in a notion text editor app.
-        Help me complete my train of thought here:##${body}##"
+        Help me complete my train of thought here:{body}"
 }
 ```
 
