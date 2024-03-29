@@ -128,6 +128,7 @@ Response 200
 "content": "I am writing a piece of text in a notion text editor app.
         Help me complete my train of thought here:##{body}##"
 }
+```
 
 ## How to Use
 
@@ -149,4 +150,7 @@ Distributed under the MIT License. See LICENSE for more information.
 - OpenAI for their unparalleled GPT API
 - The creators behind Tailwind CSS and Shadcn for their design inspiration
 - Firebase and Clerk for secure and scalable backend solutions
+
+```
+
 ```
