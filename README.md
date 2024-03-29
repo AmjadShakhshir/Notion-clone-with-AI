@@ -59,9 +59,9 @@ Access the application through http://localhost:3000.
 
 #### Create Note
 
-Endpoint: /api/createNoteBook
-Method: POST
-Body:
+- Endpoint: /api/createNoteBook
+- Method: POST
+- Body:
 
 ```json
 {
@@ -73,9 +73,9 @@ Response: 201 Created, 400 Bad Request
 
 #### Get All Notes
 
-Endpoint: /api/notebook
-Method: GET
-Response: 200 OK
+- Endpoint: /api/notebook
+- Method: GET
+- Response: 200 OK
 
 ```json
 [
@@ -95,9 +95,10 @@ Response: 200 OK
 #### AI Content Generation
 
 Generate Content
-Endpoint: /api/generate
-Method: POST
-Body:
+
+- Endpoint: /api/generate
+- Method: POST
+- Body:
 
 ```json
 {
@@ -115,8 +116,8 @@ Response: 200 OK
 
 #### AI completion
 
-Endpoint: /api/completion
-Method: POST
+- Endpoint: /api/completion
+- Method: POST
 
 ```json
 {
