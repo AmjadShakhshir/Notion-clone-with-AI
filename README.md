@@ -150,7 +150,3 @@ Distributed under the MIT License. See LICENSE for more information.
 - OpenAI for their unparalleled GPT API
 - The creators behind Tailwind CSS and Shadcn for their design inspiration
 - Firebase and Clerk for secure and scalable backend solutions
-
-```
-
-```
