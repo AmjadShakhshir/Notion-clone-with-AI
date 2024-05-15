@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import { UserButton, auth } from "@clerk/nextjs";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 import { eq } from "drizzle-orm";
 
 import CreateNoteDialog from "@/components/CreateNoteDialog";
@@ -25,7 +25,7 @@ const DashboardPage = async (props: Props) => {
           <div className="flex justify-between items-center md:flex-row flex-col">
             <div className="flex items-center">
               <Link href="/">
-                <Button className="bg-green-600" size="sm">
+                <Button className="bg-cyan-600" size="sm">
                   <ArrowLeft className="mr-1 w-4 h-4" />
                   Back
                 </Button>
