@@ -1,5 +1,6 @@
 import { OpenAIApi, Configuration } from "openai-edge";
 import { OpenAIStream, StreamingTextResponse } from "ai";
+import { handleAsyncErrors } from "@/helper/catchErrorHandler";
 
 // POST /api/completion
 const config = new Configuration({
@@ -8,9 +9,14 @@ const config = new Configuration({
 
 const openai = new OpenAIApi(config);
 
-export async function POST(req: Request) {
+export const POST = handleAsyncErrors(async (req: Request) => {
   // extract the prompt from the request body
   const { prompt } = await req.json();
+
+  if (!prompt || typeof prompt !== "string") {
+    console.error("Invalid prompt provided.");
+    return new Response("Invalid prompt. Please provide a valid input.", { status: 400 });
+  }
 
   const response = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
@@ -24,16 +30,14 @@ export async function POST(req: Request) {
       },
       {
         role: "user",
-        content: `
-        I am writing a piece of text in a notion text editor app.
-        Help me complete my train of thought here: ##${prompt}##
-        keep the tone of the text consistent with the rest of the text.
-        keep the response short and sweet.
-        `,
+        content: `I am drafting some text in a Notion-like text editor.
+                    Please help me complete the following thought: "${prompt}"
+                    Ensure the tone and style remain consistent with the existing text.
+                    Provide a concise and clear completion.`,
       },
     ],
     stream: true,
   });
   const stream = OpenAIStream(response);
   return new StreamingTextResponse(stream);
-}
+});
