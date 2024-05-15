@@ -56,9 +56,9 @@ const CreateNoteDialog = (props: Props) => {
   return (
     <Dialog>
       <DialogTrigger>
-        <div className="border-dashed border-2 flex border-green-600 h-full rounded-lg items-center justify-center sm:flex-col hover:shadow-xl transition hover:-translate-y-1 flex-row p-4">
-          <Plus className="w-6 h-6 text-green-600" strokeWidth={3} />
-          <h2 className="font-semibold text-green-600 sm:mt-2">New Note Book</h2>
+        <div className="border-dashed border-2 flex border-cyan-600 h-full rounded-lg items-center justify-center sm:flex-col hover:shadow-xl transition hover:-translate-y-1 flex-row p-4">
+          <Plus className="w-6 h-6 text-cyan-600" strokeWidth={3} />
+          <h2 className="font-semibold text-cyan-600 sm:mt-2">New Note Book</h2>
         </div>
       </DialogTrigger>
       <DialogContent>
@@ -73,7 +73,7 @@ const CreateNoteDialog = (props: Props) => {
             <Button type="reset" variant={"secondary"}>
               Cancel
             </Button>
-            <Button type="submit" className="bg-green-600" disabled={createNotebook.isPending}>
+            <Button type="submit" className="bg-cyan-600" disabled={createNotebook.isPending}>
               {createNotebook.isPending && <Loader2 className="w-4 h-4 mr-2 animate-spin" strokeWidth={2} />}
               Create
             </Button>
