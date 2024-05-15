@@ -1,8 +1,9 @@
+import { handleAsyncErrors } from "@/helper/catchErrorHandler";
 import { db } from "@/lib/db";
 import { $notes } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 
-export async function POST(req: Request) {
+export const POST = handleAsyncErrors(async (req: Request) => {
   try {
     const { noteId } = await req.json();
     await db.delete($notes).where(eq($notes.id, parseInt(noteId)));
@@ -11,4 +12,4 @@ export async function POST(req: Request) {
     console.error("Failed to delete note", error);
     return new Response("failed", { status: 500 });
   }
-}
+}, "Failed to delete note");

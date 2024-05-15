@@ -1,3 +1,4 @@
+import { handleAsyncErrors } from "@/helper/catchErrorHandler";
 import { db } from "@/lib/db";
 import { $notes } from "@/lib/db/schema";
 import { generateImagePrompt, generateImage } from "@/lib/openai";
@@ -6,7 +7,7 @@ import { NextResponse } from "next/server";
 
 export const runtime = "edge";
 
-export async function POST(req: Request) {
+export const POST = handleAsyncErrors(async (req: Request) => {
   const { userId } = auth();
   if (!userId) {
     return new NextResponse("Unauthorized", {
@@ -42,4 +43,4 @@ export async function POST(req: Request) {
   return NextResponse.json({
     note_id: note_ids[0].insertedId,
   });
-}
+}, "Failed to create note");
