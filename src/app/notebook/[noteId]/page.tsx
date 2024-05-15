@@ -18,7 +18,7 @@ type Props = {
 };
 
 const NotebookPage = async ({ params: { noteId } }: Props) => {
-  const { userId } = await auth();
+  const { userId } = auth();
   if (!userId) {
     return redirect("/dashboard");
   }
@@ -38,7 +38,7 @@ const NotebookPage = async ({ params: { noteId } }: Props) => {
       <div className="max-w-4x1 mx-auto">
         <div className="border shadow-xl border-stone-200 rounded-lg p-4 flex items-center">
           <Link href="/dashboard">
-            <Button className="bg-green-600" size="sm">
+            <Button className="bg-cyan-600" size="sm">
               Back
             </Button>
           </Link>
