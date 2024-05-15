@@ -1,14 +1,33 @@
 import { Editor } from "@tiptap/react";
 import { Bold, Code, Heading1, Heading2, Heading3, Heading4, Heading5, Heading6, Italic, List, ListOrdered, Quote, Redo, Strikethrough, Undo } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {
   editor: Editor;
 };
 
 const TipTapMenuBar = ({ editor }: Props) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const fixedMenuBarClasses = isScrolled ? "fixed top-0 w-full z-50 bg-white p-3" : "";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 100;
+      if (show) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    document.addEventListener("scroll", handleScroll);
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className={`flex flex-wrap gap-2 ${fixedMenuBarClasses}`}>
       <button onClick={() => editor.chain().focus().toggleBold().run()} disabled={!editor.can().chain().focus().toggleBold().run()} className={editor.isActive("bold") ? "is-active" : ""}>
         <Bold className="w-6 h-6" />
       </button>
