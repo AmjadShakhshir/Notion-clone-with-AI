@@ -40,4 +40,4 @@ export const POST = handleAsyncErrors(async (req: Request) => {
   });
   const stream = OpenAIStream(response);
   return new StreamingTextResponse(stream);
-});
+}, "Failed to generate completion");
