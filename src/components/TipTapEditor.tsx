@@ -35,9 +35,16 @@ const TipTapEditor = ({ note }: Props) => {
     addKeyboardShortcuts() {
       return {
         "Control-d": () => {
-          // take the last 30 words
-          const prompt = this.editor.getText().split(" ").slice(-30).join(" ");
-          complete(prompt);
+          // Get the selected text
+          const selection = this.editor.state.selection;
+          const selectedText = this.editor.state.doc.textBetween(selection.from, selection.to, " ");
+
+          // Check if there is selected text
+          if (selectedText) {
+            complete(selectedText);
+          } else {
+            console.warn("No text selected.");
+          }
           return true;
         },
       };
